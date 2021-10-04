@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+<div class="container">
+  <form action="" class="formulario_Junta" method="POST" enctype="multipart/form-data">
+              <div class="container">
+              <br>
+              <br>
+                  <h6> **Rellena el formulario** </h6>
+                  <h4> Junta de vecino </h4>
+                  
+                    {{ form | crispy}}
+
+                    {% csrf_token %}
+                    <label> imagen </label>
+                    <input type="file" name"txtImagen" id="txtImagen">
+                  <br>
+                  <div class="d-flex justify-content">
+                          <input type="reset" value="Cancelar" class="btn btn-secondary">
+                          &nbsp;
+                          <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                
+  </form>
+</div>
+
+{% endblock %}
