@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'Fondeve_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
         'USER':'postgres',
-        'NAME': 'Fondeve_web',
-        'PASSWORD':'123456',
+        'NAME': 'fondeve_web',
+        'PASSWORD':'12345678',
         'HOST': 'localhost',
         'PORT':'5432'
     }

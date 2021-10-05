@@ -12,7 +12,7 @@ class JuntaAdmin(admin.ModelAdmin):
     search_fields=["nombre"]
 
 class RepresentanteAdmin(admin.ModelAdmin):
-    list_display =["nombre","rut","telefono","email","imagen"]
+    list_display =["nombre","rut","telefono","email"]
     search_fields=["nombre"]
 
 admin.site.register(Contacto,ContactoAdmin)

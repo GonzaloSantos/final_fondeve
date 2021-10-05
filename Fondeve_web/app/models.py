@@ -5,6 +5,7 @@ class Junta(models.Model):
     nombre=models.CharField(max_length=50)
     rut=models.IntegerField()
     direccion=models.CharField(max_length=50)
+    imagen= models.ImageField(upload_to="imagenes",null=True)
 
     def __str__(self):
         return self.nombre
@@ -14,7 +15,6 @@ class Representante(models.Model):
     rut=models.IntegerField()
     telefono=models.IntegerField()
     email= models.EmailField (max_length=254)
-    imagen= models.ImageField(upload_to="imagenes",null=True)
 
     def __str__(self):
         return self.nombre
@@ -35,3 +35,10 @@ class Contacto(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class Imagenes(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='media\imagenes_registro')
+
+    def __str__(self):
+        return self.title
