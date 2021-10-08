@@ -8,11 +8,11 @@ class ContactoAdmin(admin.ModelAdmin):
 
 
 class JuntaAdmin(admin.ModelAdmin):
-    list_display =["nombre","rut","direccion"]
+    list_display =["nombre","rut","direccion","imagen"]
     search_fields=["nombre"]
 
 class RepresentanteAdmin(admin.ModelAdmin):
-    list_display =["nombre","rut","telefono","email","imagen"]
+    list_display =["nombre","rut","telefono","email"]
     search_fields=["nombre"]
 
 admin.site.register(Contacto,ContactoAdmin)

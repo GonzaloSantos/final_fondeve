@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import ContactoForm,JuntaForm,RepresentanteForm
+from .forms import ContactoForm,JuntaForm,RepresentanteForm, ImageForm
 from django .contrib import messages
 
 
@@ -42,6 +42,23 @@ def postula (request):
 
 def registrate (request):
     data={
+        'form':JuntaForm(),
+        'formulario_imagen':ImageForm()
+    }
+    if request.method =='POST':
+        formulario = JuntaForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            img_obj = formulario.instance
+            data["Mensaje"] = "Mensaje enviado"
+            return render (request,'app/registrate.html', {'formulario': formulario, 'img_obj': img_obj})
+
+        else:
+            data["form"]= formulario
+    return render (request,'app/registrate.html', data)
+'''
+def registrate (request):
+    data={
         'form':JuntaForm()
     }
     if request.method =='POST':
@@ -53,4 +70,4 @@ def registrate (request):
             data["form"]= formulario
     return render (request,'app/registrate.html',data)
 
-
+'''

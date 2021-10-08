@@ -2,6 +2,7 @@
 {% load static %}
 {% block contenido %}
 {% load crispy_forms_tags %}
+<!--
 <div class="container">
   <form action="" class="formulario_Junta" method="POST" enctype="multipart/form-data">
               <div class="container">
@@ -22,6 +23,21 @@
                           <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
                 
   </form>
-</div>
 
+</div>
+  -->
+
+<div class="container">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit">Enviar</button>
+  </form>
+  
+  {% if img_obj %}
+    <h3>El formulario se registró correctamente</h3>
+    
+  {% endif %}
+  
+</div>
 {% endblock %}
